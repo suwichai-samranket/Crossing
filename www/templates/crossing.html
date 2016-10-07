@@ -1,0 +1,18 @@
+<ion-view>
+  <ion-nav-bar>
+    <ion-nav-title>เลือกคู่ผสม</ion-nav-title>
+  </ion-nav-bar>
+  <ion-nav-buttons side="left">
+    <button class="button-icon icon ion-chevron-left" ng-click="btnBack();">
+      Back
+    </button>
+  </ion-nav-buttons>
+	<ion-content padding="10">
+    <div align="center" style="margin:10px">
+      <h3>สถานที่ในการผสม : {{txtNamePlace}}</h3>
+    </div>
+      <button class="button button-block button-calm" ng-click="scanBarcode()">สแกนกระโจม</button>
+      <button class="button button-block button-balanced" ng-click="scanBarcode()">สแกนต้นพ่อ</button>
+      <button class="button button-block button-energized" ng-click="scanBarcode()">สแกนต้นแม่</button>
+  </ion-content>
+</ion-view>

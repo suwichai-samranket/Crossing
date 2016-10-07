@@ -1,0 +1,26 @@
+<ion-view cache-view="false">
+  <ion-nav-bar>
+    <ion-nav-title>รายละเอียด</ion-nav-title>
+  </ion-nav-bar>
+  <ion-nav-buttons side="left">
+    <button class="button-icon icon ion-chevron-left" ng-click="btnBack();">
+      Back
+    </button>
+  </ion-nav-buttons>
+    <ion-content>
+      <div align="center" style="margin:10px">
+        <h3>สถานที่ในการเก็บข้อมูล : {{txtNamePlace}}</h3>
+      </div>
+      <div align="center" style="margin:10px" ng-repeat="data in myDataArray">
+        <h3>ชื่อพันธ์ที่เก็บข้อมูล : {{data.variety_n}}</h3>
+      </div>
+      <div align="center" style="margin:10px" ng-repeat="maxdata in myMaxStateArray">
+        <button class="button button-full" ng-disabled="maxdata.max_state_id != null" ng-click="btnAddLeafFlag(1);">ยืนยันตั้งท้อง</button>
+        <button class="button button-full" ng-disabled="maxdata.max_state_id == 3 || maxdata.max_state_id == 2 || maxdata.max_state_id == null" ng-click="btnAddLeafFlag(2);">ยืนยันตั้งใบธง</button>
+        <button class="button button-full" ng-disabled="maxdata.max_state_id == 1 || maxdata.max_state_id == 3 || maxdata.max_state_id == null" ng-click="btnAddLeafFlag(3);">ยืนยันออกดอก</button>
+      </div>
+      <!-- <div align="center" style="margin:10px" ng-repeat="data in myStateArray">
+        <button class="button button-full" ng-click="btnAddLeafFlag({{data.state_id}},'{{data.name}}');">ยืนยัน{{data.name}}</button>
+      </div> -->
+    </ion-content>
+</ion-view>

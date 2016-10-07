@@ -1,0 +1,22 @@
+<ion-view cache-view="false">
+  <ion-nav-bar>
+    <ion-nav-title></ion-nav-title>
+  </ion-nav-bar>
+  <ion-nav-buttons side="left">
+    <div class="bar bar-header">
+      <button class="button icon ion-home" ng-click="btnHome();"></button>
+      <h1 class="title">คาดการณ์การออกดออก</h1>
+      <button class="button button-positive" ng-click="btnPlace();">จับคู่ผสม</button>
+    </div>
+  </ion-nav-buttons>
+  <ion-content>
+    <div class="list">
+      <a class="item item-icon-left" href="#" ng-repeat="data in myDataArray">
+        <i class="icon ion-ios-flower-outline"></i> พันธุ์: {{data.variety_id}} | เบอร์: {{data.variety_n}}
+        <p>สถานที่ : {{data.place_id}}</p>
+        <p>ผู้เก็บข้อมูล : {{data.user_id}}</p>
+        <span class="badge badge-assertive">อีก {{data.diff}} วัน</span>
+      </a>
+    </div>
+  </ion-content>
+</ion-view>
