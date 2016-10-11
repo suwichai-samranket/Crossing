@@ -11,8 +11,32 @@
     <div align="center" style="margin:10px">
       <h3>สถานที่ในการผสม : {{txtNamePlace}}</h3>
     </div>
-      <button class="button button-block button-calm" ng-click="scanBarcode()">สแกนกระโจม</button>
-      <button class="button button-block button-balanced" ng-click="scanBarcode()">สแกนต้นพ่อ</button>
-      <button class="button button-block button-energized" ng-click="scanBarcode()">สแกนต้นแม่</button>
+    <form name="crossingfrm">
+      <div class="row responsive-sm">
+        <div class="col col-33">
+          <label class="item item-input item-stacked-label">
+            <span class="input-label"><b>เบอร์กระโจม</b></span>
+              <input type="text" ng-model="tentno" placeholder="...รอการสแกน" ng-readonly="!tentno">
+          </label>
+          <button class="button button-block button-calm" ng-click="scanTent()">สแกนกระโจม</button>
+        </div>
+        <div class="col col-33">
+            <label class="item item-input item-stacked-label">
+              <span class="input-label"><b>ชื่อพ่อพันธุ์</b></span>
+                <input type="text" ng-model="father" placeholder="...รอการสแกน" ng-readonly="!father">
+            </label>
+          <button class="button button-block button-balanced" ng-click="scanFather()">สแกนต้นพ่อ</button>
+        </div>
+        <div class="col col-33">
+            <label class="item item-input item-stacked-label">
+              <span class="input-label"><b>ชื่อแม่พันธุ์</b></span>
+                <input type="text" ng-model="mother" placeholder="...รอการสแกน" ng-readonly="!mother">
+            </label>
+          <button class="button button-block button-energized" ng-click="scanMother()">สแกนต้นแม่</button>
+        </div>
+      </div>
+      <!-- <button class="button button-full" ng-click="btnAddCrossing();">บันทึกข้อมูล</button> -->
+      <button class="button button-full" ng-disabled="!father || !mother || !tentno" ng-click="btnAddCrossing();">บันทึกข้อมูล</button>
+    </form>
   </ion-content>
 </ion-view>

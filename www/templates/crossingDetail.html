@@ -1,0 +1,44 @@
+<ion-view>
+  <ion-nav-bar>
+    <ion-nav-title></ion-nav-title>
+  </ion-nav-bar>
+  <ion-nav-buttons side="left">
+    <div class="bar bar-header">
+      <button class="button icon ion-home" ng-click="btnHome();"></button>
+      <h1 class="title">ข้อมูลการผสม</h1>
+      <button class="button button-positive" ng-click="btnPlace();">จับคู่ผสม</button>
+    </div>
+  </ion-nav-buttons>
+	<ion-content>
+    <ion-refresher on-refresh="doRefresh()"></ion-refresher>
+    <label class="item item-input"><i class="icon ion-search placeholder-icon"></i>
+    <input type="search" placeholder="search" ng-model="searchQuery"></label>
+    <div class="padding">
+
+    <div class="list" ng-repeat="data in myDataArray|filter:searchQuery" ng-click="moreDetail(data)">
+    <div class="item">
+
+    <h2>แม่พันธุ์ : {{data.mother_id}} ({{data.mother_no}})</h2>
+    <h2>พ่อพันธุ์ : {{data.father_id}} ({{data.father_no}})</h2>
+    <p>
+      เบอร์กระโจม : {{data.tent_no}}
+    </p>
+    <p>
+      สถานที่ผสม : {{data.place_id}}
+    </p>
+    <p>
+      เวลาที่ผสม : {{data.crossing_date}}
+    </p>
+    <p>
+      เวลาเปลี่ยนพ่อครั้งล่าสุด : {{data.change_father_date}}
+    </p>
+    <p>
+      ผู้บันทึก : {{data.user_id}}
+    </p>
+
+    </div>
+    </div>
+  </div>
+
+  </ion-content>
+</ion-view>

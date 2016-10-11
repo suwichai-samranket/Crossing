@@ -55,15 +55,25 @@ angular.module('Crossing', ['ionic','ngCordova'])
         controller:'crossingController'
       })
 
+      .state('crossingDetail',{
+        url:'/crossingDetail:{user_id}',
+        templateUrl:'templates/crossingDetail.html',
+        controller:'crsdetailController'
+      })
 
+      .state('moreDetail',{
+        url:'/moreDetail:{user_id}/{crossing_id}',
+        templateUrl:'templates/moreDetail.html',
+        controller:'moredetailController'
+      })
     $urlRouterProvider.otherwise('/login')
 })
 
 .service('GlobalService',function(){
 
   return {
-      hostname : "http://www.canebreeding.com/webservice/"
-      // hostname : "http://192.168.8.1/canebreeding/webservice/"
+      // hostname : "http://www.canebreeding.com/webservice/"
+      hostname : "http://192.168.8.1/canebreeding/webservice/"
   }
 
 });

@@ -10,12 +10,17 @@
     </div>
   </ion-nav-buttons>
   <ion-content>
+    <label class="item item-input"><i class="icon ion-search placeholder-icon"></i>
+    <input type="search" placeholder="search" ng-model="searchQuery"></label>
     <div class="list">
-      <a class="item item-icon-left" href="#" ng-repeat="data in myDataArray">
-        <i class="icon ion-ios-flower-outline"></i> พันธุ์: {{data.variety_id}} | เบอร์: {{data.variety_n}}
+      <a class="item item-icon-left" href="" ng-repeat="data in myDataArray | filter:searchQuery ">
+        <i class="icon ion-ios-flower-outline"></i> พันธุ์: {{data.variety_id}}
+        <br />เบอร์: {{data.variety_n}}
         <p>สถานที่ : {{data.place_id}}</p>
         <p>ผู้เก็บข้อมูล : {{data.user_id}}</p>
-        <span class="badge badge-assertive">อีก {{data.diff}} วัน</span>
+        <p>วันที่ตั้งใบธง : {{data.timestamp}}</p>
+        <span class="badge badge-balanced" ng-if="data.diff<=0">ออกดอก</span>
+        <span class="badge badge-assertive" ng-if="data.diff>0">อีก {{data.diff}} วัน</span>
       </a>
     </div>
   </ion-content>
